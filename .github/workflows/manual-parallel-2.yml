@@ -3,10 +3,14 @@ name: Manual-Parallel-2
 on:
   workflow_dispatch:
     inputs:
-      trigger_next:
-        description: 'Whether to run the subsequent workflows after triggering this one manully.'
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Manually trigger the workflow'
+        # Default value if no value is explicitly provided
+        default: 'Run'
+        # Input has to be provided for the workflow to run
         required: false
-        default: false
+        # The data type of the input
   repository_dispatch:
     types: [manual-parallel-2]
 
