@@ -1,7 +1,12 @@
 name: Manual-Parallel-2
 
 on:
-  
+  workflow_dispatch:
+    inputs:
+      trigger_next:
+        description: 'Whether to run the subsequent workflows after triggering this one manully.'
+        required: false
+        default: false
   repository_dispatch:
     types: [manual-parallel-2]
 
