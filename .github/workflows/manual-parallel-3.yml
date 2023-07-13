@@ -11,12 +11,10 @@ on:
         # Input has to be provided for the workflow to run
         required: false
         # The data type of the input
-      branch:
-        description: 'Branch name'
-        required: true
-        type: string
   repository_dispatch:
     types: [manual-parallel-3]
+    branches:
+      - branch-name
 
 jobs:
   # This workflow contains a single job called "greet"
