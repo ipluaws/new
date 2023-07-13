@@ -26,8 +26,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.client_payload.branch }}
     - name: Send greeting
-      run: echo "Manual-parallel-2"
+      run: echo "Manual-parallel-2-master"
   
   
