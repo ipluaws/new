@@ -13,8 +13,9 @@ on:
         # The data type of the input
   repository_dispatch:
     types: [manual-parallel-2]
-    branches:
-      - branch-name
+    properties:
+      branch:
+        type: string
 
 jobs:
   # This workflow contains a single job called "greet"
