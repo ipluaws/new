@@ -25,7 +25,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
+    - name: Select Branch
+      id: branch-selector
+      uses: actions/github-script@v4
+      with:
+        script: |
+          const branch = "${{ github.event.client_payload.branch }}";
+          console.log(`Selected Branch: ${branch}`);
+          core.setOutput("branch", branch)
+          
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ steps.branch-selector.outputs.branch }}
+
     - name: Send greeting
       run: echo "Manual-parallel-2-dev"
   
