@@ -28,14 +28,14 @@ jobs:
       uses: actions/github-script@v4
       with:
         script: |
-          const branch = "${{ github.event.client_payload.branch }}";
+          const branch = "${{ github.event.inputs.branch }}";
           console.log(`Selected Branch: ${branch}`);
           core.setOutput("branch", branch)
           
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        ref: ${{ steps.branch-selector.outputs.branch }}
+        ref: ${{ github.event.inputs.branch }}
 
     - name: Send greeting
       run: echo "Manual-parallel-2-dev"
