@@ -26,7 +26,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.inputs.branch }}
+        ref: ${{ github.event.client_payload.branch }}
 
     - name: Send greeting
       run: echo "Manual-parallel-2-dev"
