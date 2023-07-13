@@ -22,16 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    - name: Select Branch
-      id: branch-selector
-      uses: actions/github-script@v4
-      with:
-        script: |
-          const branch = "${{ github.event.inputs.branch }}";
-          console.log(`Selected Branch: ${branch}`);
-          core.setOutput("branch", branch)
-          
+    steps:    
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
