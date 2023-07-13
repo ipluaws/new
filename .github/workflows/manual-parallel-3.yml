@@ -24,4 +24,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Manual-parallel-3"
+      run: echo "Manual-parallel-3-dev"
